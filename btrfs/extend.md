@@ -1,6 +1,7 @@
 ## Extend system LVM
 
-#fdisk /dev/sda
+```bash
+# fdisk /dev/sda
 
 Welcome to fdisk (util-linux 2.36.2).
 Changes will remain in memory only, until you decide to write them.
@@ -40,8 +41,9 @@ Command (m for help): w
 The partition table has been altered.
 Syncing disks.
 
-#pvresize /dev/sda2
+# pvresize /dev/sda2
 
-#lvextend -l +100%FREE /dev/system/root
+# lvextend -l +100%FREE /dev/system/root
 
-#btrfs filesystem resize max /
+# btrfs filesystem resize max /
+```
