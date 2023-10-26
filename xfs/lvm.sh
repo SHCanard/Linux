@@ -1,14 +1,15 @@
 # Force devices rescan
 echo '1' > /sys/class/scsi_disk/0\:0\:0\:0/device/rescan
+echo 1>/sys/class/block/sd[X]/device/rescan
 
 # Edit partition table
-fdisk /dev/sda
+fdisk /dev/sd[X]
 
 # Inform the OS of partition table changes
 partprobe
 
 # Resize physical volume
-pvresize /dev/sdb1
+pvresize /dev/sd[X]1
 
 # Create Volume Group
 vgcreate -s 4M [Volume Group Name] [list of all disks]
